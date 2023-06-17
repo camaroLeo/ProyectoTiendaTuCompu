@@ -15,8 +15,8 @@ class Login extends Controllers
     public function login()
     {
 
-        $data['page_tag'] = "TuCompu";
-        $data['page_title'] = "TuCompu";
+        $data['page_tag'] = "";
+        $data['page_title'] = "";
         $data['page_name'] = "login";
         $data['page_functions_js'] = "functions_login.js";
         $this->views->getView($this, "login", $data);

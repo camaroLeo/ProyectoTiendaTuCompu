@@ -3,8 +3,8 @@ headerTienda($data);
 $arrProducto = $data['producto'];
 $arrProductos = $data['productos'];
 $arrImages = $arrProducto['images'];
-
 $rutacategoria = $arrProducto['categoriaid'].'/'.$arrProducto['ruta_categoria'];
+$urlShared = base_url()."/tienda/producto/".$arrProducto['idproducto']."/".$arrProducto['ruta'];
 ?>
 <br><br><br>  
 <hr>  
@@ -105,21 +105,21 @@ $rutacategoria = $arrProducto['categoriaid'].'/'.$arrProducto['ruta_categoria'];
 						<!--  -->
 						<div class="flex-w flex-m p-l-100 p-t-40 respon7">
 							<div class="flex-m bor9 p-r-10 m-r-11">
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-									<i class="zmdi zmdi-favorite"></i>
-								</a>
+								Compartir en:
 							</div>
 
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+							<a href="#" target="blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook"
+								onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?= $urlShared; ?> &t=<?= $arrProducto['nombre'] ?>','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');"
+								>
 								<i class="fa fa-facebook"></i>
 							</a>
 
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+							<a href="https://twitter.com/intent/tweet?text=<?= $arrProducto['nombre'] ?>&url=<?= $urlShared; ?>&hashtags=<?= SHAREDHASH; ?>" target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
 								<i class="fa fa-twitter"></i>
 							</a>
 
-							<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-								<i class="fa fa-google-plus"></i>
+							<a href="https://api.whatsapp.com/send?text=<?= $arrProducto['nombre'].' '.$urlShared ?>" target="_blank" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="WhatsApp">
+								<i class="fab fa-whatsapp" aria-hidden="true"></i>
 							</a>
 						</div>
 					</div>
@@ -138,12 +138,11 @@ $rutacategoria = $arrProducto['categoriaid'].'/'.$arrProducto['ruta_categoria'];
 	<!-- Related Products -->
 	<section class="sec-relate-product bg0 p-t-45 p-b-105">
 		<div class="container">
-
-
 			<!-- Slide2 -->
 			<div class="wrap-slick2">
 				<div class="slick2">
-                <?php 
+
+				<?php 
 					if(!empty($arrProductos)){
 						for ($p=0; $p < count($arrProductos); $p++) { 
 							$ruta = $arrProductos[$p]['ruta'];
@@ -152,14 +151,14 @@ $rutacategoria = $arrProducto['categoriaid'].'/'.$arrProducto['ruta_categoria'];
 							}else{
 								$portada = media().'/images/uploads/product.png';
 							}
-				?>
+				 ?>
 					<div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-pic hov-img0">
 								<img src="<?= $portada ?>" alt="<?= $arrProductos[$p]['nombre'] ?>">
 
-								<a href="<?= base_url().'/tienda/producto/'.$arrProductos[$p]['idproducto'].'/'.$ruta; ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 ">
+								<a href="<?= base_url().'/tienda/producto/'.$arrProductos[$p]['idproducto'].'/'.$ruta; ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
 									Ver producto
 								</a>
 							</div>
@@ -167,34 +166,30 @@ $rutacategoria = $arrProducto['categoriaid'].'/'.$arrProducto['ruta_categoria'];
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
 									<a href="<?= base_url().'/tienda/producto/'.$arrProductos[$p]['idproducto'].'/'.$ruta; ?>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                    <?= $arrProductos[$p]['nombre'] ?>
+										<?= $arrProductos[$p]['nombre'] ?>
 									</a>
-
 									<span class="stext-105 cl3">
-                                    <?= SMONEY.formatMoney($arrProductos[$p]['precio']); ?>
+										<?= SMONEY.formatMoney($arrProductos[$p]['precio']); ?>
 									</span>
 								</div>
-
 								<div class="block2-txt-child2 flex-r p-t-3">
-                                    <a href="<?= base_url().'/tienda/producto/'.$arrProductos[$p]['nombre'] ?>" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-                                        <img class="icon-heart1 dis-block trans-04" src="<?= media()?>/tienda/images/icons/icon-heart-01.png" alt="ICON">
-                                        <img class="icon-heart2 dis-block trans-04 ab-t-l" src="<?= media()?>/tienda/images/icons/icon-heart-02.png" alt="ICON">
-                                    </a>
-							    </div>
+									<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+										<img class="icon-heart1 dis-block trans-04" src="<?= media() ?>/tienda/images/icons/icon-heart-01.png" alt="ICON">
+										<img class="icon-heart2 dis-block trans-04 ab-t-l" src="<?= media() ?>/tienda/images/icons/icon-heart-02.png" alt="ICON">
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
+				<?php 
+						}
+					}	
+				 ?>
+
 				</div>
-            <?php
-                }
-        	}else{
-                echo "No hay productos para mostrar.";
-            }
-        	?>
 			</div>
 		</div>
 	</section>
-		
-<?php
-    footerTienda($data);
+<?php 
+	footerTienda($data);
 ?>

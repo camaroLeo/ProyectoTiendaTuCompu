@@ -13,7 +13,7 @@
 		{
 			$data['page_tag'] = NOMBRE_EMPESA;
 			$data['page_title'] = NOMBRE_EMPESA;
-			$data['page_name'] = "TuCompu";
+			$data['page_name'] = "Pizza Raul";
 			$data['slider'] = $this->getCategoriasT(CAT_SLIDER);
 			$data['banner'] = $this->getCategoriasT(CAT_BANNER);
 			$data['productos'] = $this->getProductosT();

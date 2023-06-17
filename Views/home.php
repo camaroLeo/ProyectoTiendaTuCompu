@@ -72,7 +72,7 @@
 
 							<div class="block1-txt-child2 p-b-4 trans-05">
 								<div class="block1-link stext-101 cl0 trans-09">
-									<?= $arrBanner[$j]['nombre'] ?>
+									Ver productos
 								</div>
 							</div>
 						</a>
@@ -129,9 +129,12 @@
 							</div>
 
 							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="<?= base_url().'/tienda/producto/'.$arrProductos[$p]['nombre'] ?>" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="<?= media() ?>/tienda/images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="<?= media() ?>/tienda/images/icons/icon-heart-02.png" alt="ICON">
+								<a href="#"
+									id="<?= openssl_encrypt($arrProductos[$p]['idproducto'],METHODENCRIPT,KEY); ?>"
+									class="btn-addwish-b2 dis-block pos-relative js-addwish-b2 js-addcart-detail
+									icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11
+									">
+										<i class="zmdi zmdi-shopping-cart"></i>
 								</a>
 							</div>
 						</div>
@@ -145,12 +148,15 @@
 
 			<!-- Load more -->
 			<div class="flex-c-m flex-w w-full p-t-45">
-				<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+				<a href="<?= base_url() ?>/tienda" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
 					Ver más
 				</a>
 			</div>
 		</div>
+		
 	</section>
+
+	
 
 <?php
   footerTienda($data);

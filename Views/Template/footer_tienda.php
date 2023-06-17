@@ -1,3 +1,6 @@
+	<?php 
+		$catFotter = getCatFooter();
+	?>
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
@@ -6,32 +9,17 @@
 					<h4 class="stext-301 cl0 p-b-30">
 						Categorias
 					</h4>
-
+					<?php if(count($catFotter) > 0){ ?>
 					<ul>
+						<?php foreach ($catFotter as $cat) { ?>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Inicio
+							<a href="<?= base_url() ?>/tienda/categoria/<?= $cat['idcategoria'].'/'.$cat['ruta'] ?>" class="stext-107 cl7 hov-cl1 trans-04">
+								<?= $cat['nombre'] ?>
 							</a>
 						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Tienda
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Carrito
-							</a>
-						</li>
-
-						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-								Secreto
-							</a>
-						</li>
+						<?php } ?>
 					</ul>
+					<?php } ?>
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
@@ -40,29 +28,39 @@
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-                        Av. La Honradez 811-805, Los Olivos 15307 
-                        <br>Telf: (01) 207 - 8130
+						<?= DIRECCION ?> <br>
+						Tel: <a class="linkFooter" href="tel:<?= TELEMPRESA ?>"><?= TELEMPRESA ?></a><br>
+						Email: <a class="linkFooter" href="mailto:<?= EMAIL_EMPRESA ?>"><?= EMAIL_EMPRESA ?></a>
 					</p>
 
 					<div class="p-t-27">
-						<a href="https://www.facebook.com/PizzaRaulOficial" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="<?= FACEBOOK ?>" target="_blanck" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-facebook"></i>
 						</a>
 
-						<a href="https://www.instagram.com/pizzaraul_oficial/?hl=es" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="<?= INSTAGRAM ?>" target="_blanck"  class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="https://wa.me/<?= WHATSAPP ?>" target="_blanck"  class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fab fa-whatsapp"></i>
 						</a>
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-lg-3 p-b-50">
+				<div class="col-sm-6 col-lg-4 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
 						Suscríbete
 					</h4>
 
-					<form>
+					<form id="frmSuscripcion" name="frmSuscripcion">
 						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" id="nombreSuscripcion" name="nombreSuscripcion" placeholder="Nombre completo" required>
+							<div class="focus-input1 trans-04"></div>
+						</div>
+						<br>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="email" id="emailSuscripcion" name="emailSuscripcion" placeholder="email@example.com" required >
 							<div class="focus-input1 trans-04"></div>
 						</div>
 
@@ -146,11 +144,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <?= N
 <!--===============================================================================================-->
 	<script src="<?= media() ?>/tienda/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <!--===============================================================================================-->
+	<script src="<?= media();?>/js/fontawesome.js"></script>
 	<script src="<?= media() ?>/tienda/js/main.js"></script>
 	<script src="<?= media() ?>/js/functions_admin.js"></script>
 	<script src="<?= media() ?>/js/functions_login.js"></script>
 	<script src="<?= media() ?>/tienda/js/functions.js"></script>
 	
+
+<!-- Landbot -->
+<script>
+window.addEventListener('mouseover', initLandbot, { once: true });
+window.addEventListener('touchstart', initLandbot, { once: true });
+var myLandbot;
+function initLandbot() {
+  if (!myLandbot) {
+    var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
+    s.addEventListener('load', function() {
+      var myLandbot = new Landbot.Livechat({
+        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-1629724-7KPCN1I696GW0JHJ/index.json',
+      });
+    });
+    s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+    var x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  }
+}
+</script>
 
 </body>
 </html>

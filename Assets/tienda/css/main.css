@@ -296,7 +296,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 }
 
 .header-v4 .wrap-menu-desktop {
-  background-color: #fff;
+  background-color: #000000d9;
 }
 
 
@@ -309,7 +309,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   display: -ms-flexbox;
   display: flex;
   align-items: center;
-  background-color: transparent;
+  background-color: #26262600;
 }
 
 
@@ -460,6 +460,26 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .sub-menu > li:hover > a {
   color: #ff0000;
   text-decoration: none;
+}
+.modal{
+	z-index: 9999;
+}
+
+.container p{
+  margin-bottom: 20px;
+}
+
+.container ul, .container ol{
+  margin-left: 15px;
+  margin-bottom: 20px;
+}
+
+.container ul, .container ul li{
+  list-style: initial;
+}
+
+.container ol li{
+  list-style: image-set;
 }
 
 @media (max-width: 1300px) {
@@ -3158,6 +3178,9 @@ input.num-product::-webkit-inner-spin-button {
   opacity: 1;
 }
 
+.linkFooter{
+  color: #fff;
+}
 
 
 

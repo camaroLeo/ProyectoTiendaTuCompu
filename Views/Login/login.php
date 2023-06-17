@@ -24,7 +24,7 @@
     <section class="login-content">
         <div class="logo">
             <h1>
-                
+                <?= $data['page_title']; ?>
             </h1>
         </div>
         <div class="login-box">
@@ -34,29 +34,31 @@
                 </div>
             </div>
             <form class="login-form" name="formLogin" id="formLogin" action="">
-                <h3 class="login-head">Iniciar Sesión</h3>
+                <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"> </i>INICIAR SESIÓN</h3>
                 <div class="form-group">
-                    <label class="control-label text-center">Usuario</label>
+                    <label class="control-label">USUARIO</label>
                     <input id="txtEmail" name="txtEmail" class="form-control" type="email" placeholder="Email"
                         autofocus>
                 </div>
                 <div class="form-group">
-                    <label class="control-label">Contraseña</label>
+                    <label class="control-label">CONTRASEÑA</label>
                     <input id="txtPassword" name="txtPassword" class="form-control" type="password"
                         placeholder="Contraseña">
                 </div>
                 <div class="form-group">
                     <div class="utility">
+
                         <p class="semibold-text mb-2"><a href="#" data-toggle="flip">¿Olvidaste tu Contraseña?</a></p>
                     </div>
                 </div>
                 <div id="alertLogin" class="text-center"></div>
                 <div class="form-group btn-container">
-                    <button type="submit" class="btn btn-primary btn-block">INICIAR SESIÓN</button>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i>
+                        </i>INICIAR SESIÓN</button>
                 </div>
             </form>
             <form id="formRecetPass" name="formRecetPass" class="forget-form" action="">
-                <h3 class="login-head">Recupera tu contraseña</h3>
+                <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>¿Olvidaste tu Contraseña?</h3>
                 <div class="form-group">
                     <label class="control-label">EMAIL</label>
                     <input id="txtEmailReset" name="txtEmailReset" class="form-control" type="email"
