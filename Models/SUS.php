@@ -77,5 +77,27 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        //Pedidos para analizar en colab
+        public function deta_pedidos(){
+            $conectar= parent::Conexion();
+            parent::set_names();
+            $sql="SELECT * FROM detalle_pedido ORDER BY id DESC";
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        //Todos los datos de pedidos y clientes para colab
+        public function todo_pedidos(){
+            $conectar= parent::Conexion();
+            parent::set_names();
+            $sql="SELECT dp.id, dp.pedidoid, dp.productoid, dp.precio, dp.cantidad, p.referenciacobro, p.idtransaccionpaypal, p.personaid, p.fecha, p.costo_envio, p.monto, p.tipopagoid, p.direccion_envio, p.status
+            FROM detalle_pedido dp
+            JOIN pedido p ON dp.pedidoid = p.idpedido;";
+            $sql=$conectar->prepare($sql);
+            $sql->execute();
+            return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
+        }
+
     }
 ?>

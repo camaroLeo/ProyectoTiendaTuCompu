@@ -59,5 +59,17 @@
             $datos=$categoria->sub_suscriptor($body["email"]);
             echo "El usuario se suscribio";
         break;
+
+        //Detalles pedido colab
+        case 'GetAllPed':
+            $datos=$categoria->deta_pedidos();
+            echo json_encode($datos);
+        break;
+
+        //Detalles de todos los clientes colab
+        case 'GetAllCliCo':
+            $datos=$categoria->todo_pedidos();
+            echo json_encode($datos);
+        break;
     }
 ?>

@@ -87,7 +87,7 @@ const STATUS = array('Completo','Aprobado','Cancelado','Reembolsado','Pendiente'
 
 //Productos por pagina
 const CANTPORDHOME = 8;
-const PROPORPAGINA = 4;
+const PROPORPAGINA = 8;
 const PROCATEGORIA = 1;
 const PROBUSCAR = 4;
 
