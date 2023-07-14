@@ -161,7 +161,7 @@ function initLandbot() {
     var s = document.createElement('script');s.type = 'text/javascript';s.async = true;
     s.addEventListener('load', function() {
       var myLandbot = new Landbot.Livechat({
-        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-1629724-7KPCN1I696GW0JHJ/index.json',
+        configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-1662451-XXJNJH1XELE8HIYL/index.json',
       });
     });
     s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
